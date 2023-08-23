@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorSchemeSeed: primaryColor,
         useMaterial3: true,
+        fontFamily: 'Poppins'
       ),
       getPages: AppScreens.SCREENS,
       initialRoute: AppScreens.INITIAL,

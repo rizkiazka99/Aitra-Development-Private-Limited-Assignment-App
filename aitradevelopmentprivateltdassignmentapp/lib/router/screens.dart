@@ -15,7 +15,10 @@ class AppScreens {
     GetPage(
       name: Routes.DASHBOARD, 
       page: () => const Dashboard(),
-      binding: DashboardBinding()
+      bindings: [
+        DashboardBinding(),
+        KrishiBazaarBinding()
+      ]
     ),
     GetPage(
       name: Routes.KRISHIBAZAAR,
