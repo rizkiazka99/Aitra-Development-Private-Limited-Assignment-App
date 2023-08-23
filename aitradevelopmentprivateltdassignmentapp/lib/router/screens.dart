@@ -3,9 +3,8 @@ import 'package:aitradevelopmentprivateltdassignmentapp/modules/controller/bindi
 import 'package:aitradevelopmentprivateltdassignmentapp/modules/controller/bindings/krishi_bazaar_binding.dart';
 import 'package:aitradevelopmentprivateltdassignmentapp/modules/view/dashboard.dart';
 import 'package:aitradevelopmentprivateltdassignmentapp/modules/view/detail_screen.dart';
+import 'package:aitradevelopmentprivateltdassignmentapp/modules/view/krishi_bazaar_screen.dart';
 import 'package:get/get.dart';
-
-import '../modules/view/krishi_bazaar_screen.dart';
 
 part 'routes.dart';
 

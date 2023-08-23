@@ -1,4 +1,5 @@
 import 'package:aitradevelopmentprivateltdassignmentapp/modules/view/krishi_bazaar_screen.dart';
+import 'package:aitradevelopmentprivateltdassignmentapp/modules/view/other_screens.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
