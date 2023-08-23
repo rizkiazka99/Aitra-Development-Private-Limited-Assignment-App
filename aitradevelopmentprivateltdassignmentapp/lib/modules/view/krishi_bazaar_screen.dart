@@ -51,6 +51,11 @@ class _KrishiBazaarScreenState extends State<KrishiBazaarScreen> {
       borderRadius: BorderRadius.circular(8),
       onTap: () {
         controller.itemCategory = itemCategory;
+        controller.searchController.clear();
+        if (itemCategory == 0) {
+          controller.itemsList = Data.items;
+        }
+        controller.filterItemsByCategory(itemCategory);
       },
       child: Container(
         height: 60,
@@ -213,7 +218,14 @@ class _KrishiBazaarScreenState extends State<KrishiBazaarScreen> {
                       controller: controller.searchController, 
                       label: 'Search Product Name...',
                       prefixIcon: Image.asset('assets/icons/search.png'),
-                      validator: (value) {}
+                      onChanged: (value) {
+                        controller.searchItems(controller.itemCategory, value);
+                      },
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please input a proper search query';
+                        }
+                      }
                     ),
                   ),
                   const SizedBox(height: 15),
@@ -254,9 +266,13 @@ class _KrishiBazaarScreenState extends State<KrishiBazaarScreen> {
                     ),
                   ),
                   const SizedBox(height: 15),
-                  itemsGridview(Data.items, () {
-                    Get.toNamed(Routes.DETAIL);
-                  }),
+                  Obx(() => itemsGridview(
+                    controller.itemCategory == 0 ? controller.itemsList
+                        : controller.filteredItemsByCategory, 
+                    () {
+                      Get.toNamed(Routes.DETAIL);
+                    }
+                  )),
                   const SizedBox(height: 45),
                   newestProductsCarousel(controller),
                   const SizedBox(height: 55),

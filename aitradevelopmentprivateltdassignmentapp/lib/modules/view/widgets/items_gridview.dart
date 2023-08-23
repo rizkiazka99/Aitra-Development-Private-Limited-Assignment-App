@@ -1,12 +1,10 @@
 import 'package:aitradevelopmentprivateltdassignmentapp/core/colors.dart';
 import 'package:aitradevelopmentprivateltdassignmentapp/core/font_sizes.dart';
 import 'package:aitradevelopmentprivateltdassignmentapp/modules/model/models/items_response.dart';
-import 'package:aitradevelopmentprivateltdassignmentapp/router/screens.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 Widget itemsGridview(List<Items> items, void Function()? onTap) {
-  return GridView.builder(
+  return items.isNotEmpty ? GridView.builder(
       shrinkWrap: true,
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 200,
@@ -89,5 +87,22 @@ Widget itemsGridview(List<Items> items, void Function()? onTap) {
             ),
           ),
         );
-      });
+      }) : Center(
+        child: Column(
+          children: [
+            Image.asset(
+              'assets/images/empty.png',
+              width: 250,
+              height: 250,
+            ),
+            const SizedBox(height: 15),
+            Text(
+              'No items found',
+              style: h5(
+                color: secondaryColor,
+              ),
+            )
+          ],
+        ),
+      );
 }

@@ -8,6 +8,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 class DetailScreen extends StatefulWidget {
   const DetailScreen({super.key});
@@ -119,15 +120,40 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                       ),
                       const SizedBox(height: 8),
-                      Text(
-                        '₹ ${Data.detail.item.fee}/ Day',
-                        style: h4(
+                      Obx(() => Text(
+                        '₹ ${controller.detailFee.toString()}/ Day',
+                        style: h4_5(
                           color: primaryColorLight
                         )
-                      ),
+                      )),
                       const SizedBox(height: 15),
-                      //Slider
-                      const SizedBox(height: 15),
+                      Obx(() => SfSlider(
+                        min: 0,
+                        max: 2,
+                        value: controller.sliderValue,
+                        onChanged: (value) {
+                          controller.pricing(value);
+                        },
+                        interval: 1,
+                        showLabels: true,
+                        stepSize: 1,
+                        activeColor: primaryColorLight,
+                        showDividers: true,
+                        labelFormatterCallback: (actualValue, formattedText) {
+                          if (actualValue == 0) {
+                            formattedText = 'Daily';
+                          } else {
+                            if (actualValue == 1) {
+                              formattedText = 'Weekly';
+                            } else {
+                              formattedText = 'Monthly';
+                            }
+                          }
+
+                          return formattedText;
+                        },
+                      )),
+                      const SizedBox(height: 35),
                       Text(
                         'Description',
                         style: h6(
@@ -140,15 +166,108 @@ class _DetailScreenState extends State<DetailScreen> {
                         style: bodySm(color: textGrey),
                         textAlign: TextAlign.justify,
                       ),
-                      const SizedBox(height: 50),
+                      const SizedBox(height: 40),
                       Text(
                         'Seller Information',
                         style: h6(
                           color: secondaryColor
                         ),
                       ),
-                      const SizedBox(height: 25),
-                      // Seller Contact Info
+                      const SizedBox(height: 15),
+                      Container(
+                        padding: const EdgeInsets.all(16),
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          color: primaryColorLighter,
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                          color: primaryColorLight.withOpacity(0.2),
+                                          width: 2
+                                        )
+                                      ),
+                                      child: ClipOval(
+                                        child: Image.asset(
+                                          Data.detail.contact.profilePicture
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 15),
+                                    Text(
+                                      Data.detail.contact.name,
+                                      style: h5(color: secondaryColor),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Image.asset(
+                                      'assets/images/distance.png'
+                                    ),
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      Data.detail.contact.distance,
+                                      style: bodyXs(
+                                        color: primaryColor,
+                                        fontWeight: FontWeight.bold
+                                      ),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                            const SizedBox(height: 25),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                SizedBox(
+                                  width: MediaQuery.of(context).size.width / 2,
+                                  child: Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.location_on_outlined,
+                                        color: primaryColor,
+                                        size: 15,
+                                      ),
+                                      const SizedBox(width: 4),
+                                      Flexible(
+                                        child: Text(
+                                          Data.detail.contact.address,
+                                          style: bodyXs(
+                                            color: secondaryColor,
+                                            fontWeight: FontWeight.bold
+                                          ),
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                InkWell(
+                                  onTap: () {},
+                                  child: Text(
+                                    'View Profile',
+                                    style: buttonMd(
+                                      color: primaryColor
+                                    ),
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
                       const SizedBox(height: 35),
                       DefaultButton(
                         height: 47, 

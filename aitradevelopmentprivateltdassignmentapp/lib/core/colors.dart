@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const primaryColor = Color(0xFFE26B26);
 const primaryColorLight = Color(0xFFFAA326);
+const primaryColorLighter = Color(0xFFFFFCF6);
 const secondaryColor = Color(0xFF563E1F);
 const disabledButton = Color(0xFFDADADA);
 const searchBarColor = Color(0xFFF4F4F4);
