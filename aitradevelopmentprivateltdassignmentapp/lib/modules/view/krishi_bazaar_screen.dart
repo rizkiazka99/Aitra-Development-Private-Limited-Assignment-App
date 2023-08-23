@@ -3,6 +3,7 @@ import 'package:aitradevelopmentprivateltdassignmentapp/core/font_sizes.dart';
 import 'package:aitradevelopmentprivateltdassignmentapp/modules/controller/controllers/krishi_bazaar_controller.dart';
 import 'package:aitradevelopmentprivateltdassignmentapp/modules/model/data/data.dart';
 import 'package:aitradevelopmentprivateltdassignmentapp/modules/view/widgets/custom_search_bar.dart';
+import 'package:aitradevelopmentprivateltdassignmentapp/modules/view/widgets/default_button.dart';
 import 'package:aitradevelopmentprivateltdassignmentapp/modules/view/widgets/items_gridview.dart';
 import 'package:aitradevelopmentprivateltdassignmentapp/router/screens.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -138,22 +139,12 @@ class _KrishiBazaarScreenState extends State<KrishiBazaarScreen> {
                           style: h3(color: Colors.white),
                         ),
                         const SizedBox(height: 15),
-                        InkWell(
-                          borderRadius: BorderRadius.circular(25),
+                        DefaultButton(
                           onTap: () {},
-                          child: Container(
-                            height: 47,
-                            width: MediaQuery.of(context).size.width / 3,
-                            decoration: BoxDecoration(
-                                color: primaryColor,
-                                borderRadius: BorderRadius.circular(25)),
-                            child: Center(
-                              child: Text(
-                                'View all',
-                                style: buttonLg(color: Colors.white),
-                              ),
-                            ),
-                          ),
+                          height: 47, 
+                          width: MediaQuery.of(context).size.width / 3, 
+                          buttonText: 'View all', 
+                          borderRadius: 25,
                         ),
                         const SizedBox(height: 15)
                       ],
@@ -165,6 +156,7 @@ class _KrishiBazaarScreenState extends State<KrishiBazaarScreen> {
             options: CarouselOptions(
                 height: 313,
                 enableInfiniteScroll: false,
+                viewportFraction: 0.9,
                 autoPlay: false,
                 onPageChanged: (index, reason) {
                   setState(() {
@@ -172,6 +164,7 @@ class _KrishiBazaarScreenState extends State<KrishiBazaarScreen> {
                   });
                 }
             )),
+        const SizedBox(height: 25),
         Center(
           child: DotsIndicator(
             dotsCount: Data.newestProducts.length,
@@ -283,23 +276,11 @@ class _KrishiBazaarScreenState extends State<KrishiBazaarScreen> {
           ),
         ),
       ),
-      floatingActionButton: InkWell(
-        borderRadius: BorderRadius.circular(30),
+      floatingActionButton: DefaultButton(
         onTap: () {},
-        child: Container(
-          height: 40,
-          width: MediaQuery.of(context).size.width / 4,
-          decoration: BoxDecoration(
-            color: primaryColor,
-            borderRadius: BorderRadius.circular(30)
-          ),
-          child: Center(
-            child: Text(
-              '+ Sell',
-              style: buttonLg(color: Colors.white),
-            ),
-          ),
-        ),
+        height: 40,
+        width: MediaQuery.of(context).size.width / 4,
+        buttonText: '+ Sell'
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
