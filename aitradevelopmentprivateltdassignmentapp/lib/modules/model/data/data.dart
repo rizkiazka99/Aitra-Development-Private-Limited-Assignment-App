@@ -5,24 +5,27 @@ import 'package:aitradevelopmentprivateltdassignmentapp/modules/model/models/ite
 class Data {
   static final List<Items> items = [
     Items(
-      name: "Rotovator", 
+      name: "Rotavator", 
       type: "Equipment", 
       distance: "23 Km", 
-      fee: "250", 
+      fee: "250",
+      description: '',
       image: "assets/images/rotovator.png"
     ),
     Items(
       name: "Strawreeper", 
       type: "Equipment", 
       distance: "23 Km", 
-      fee: "250", 
+      fee: "250",
+      description: '',
       image: "assets/images/strawreeper.png"
     ),
     Items(
       name: "Planter", 
       type: "Equipment", 
       distance: "2 Km", 
-      fee: "250", 
+      fee: "250",
+      description: '', 
       image: "assets/images/planter.png"
     ),
     Items(
@@ -30,6 +33,7 @@ class Data {
       type: "Transport", 
       distance: "23 Km", 
       fee: "250", 
+      description: '',
       image: "assets/images/tructor.png"
     )
   ];
@@ -40,6 +44,7 @@ class Data {
       type: "Vegetables", 
       distance: "2 Km", 
       fee: "250", 
+      description: '',
       image: "assets/images/topproducts1.png"
     ),
     Items(
@@ -47,6 +52,7 @@ class Data {
       type: "Grains", 
       distance: "23 Km", 
       fee: "250", 
+      description: '',
       image: "assets/images/topproducts2.png"
     ),
     Items(
@@ -54,6 +60,7 @@ class Data {
       type: "Dairy",
       distance: "2 Km",
       fee: "250",
+      description: '',
       image: "assets/images/topproducts3.png"
     ),
     Items(
@@ -61,16 +68,18 @@ class Data {
       type: "Dairy",
       distance: "23 Km",
       fee: "250",
+      description: '',
       image: "assets/images/topproducts4.png"
     )
   ];
 
   static final Detail detail = Detail(
     item: Items(
-      name: "Rotovator",
+      name: "Rotavator",
       type: "Equipment",
       distance: '2 km',
       fee: "240",
+      description: 'The speaker unit contains a diaphragm that is precision-grown from NAC Audio bio-cellulose, making it stiffer, lighter and stronger than regular PET speaker',
       image: "assets/images/rotavatordetail.png"
     ), 
     contact: Contact(
@@ -85,6 +94,7 @@ class Data {
         type: "Vegetables",
         distance: "2 Km",
         fee: "250",
+        description: '',
         image: "assets/images/relatedproducts1.png"
       ),
       Items(
@@ -92,6 +102,7 @@ class Data {
         type: "Grains",
         distance: "23 Km",
         fee: "250",
+        description: '',
         image: "assets/images/relatedproducts2.png"
       )
     ]

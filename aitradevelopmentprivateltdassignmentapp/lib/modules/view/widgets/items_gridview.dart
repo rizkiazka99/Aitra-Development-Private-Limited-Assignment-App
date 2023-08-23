@@ -73,7 +73,7 @@ Widget itemsGridview(List<Items> items, void Function()? onTap) {
                     Row(
                       children: [
                         Text(
-                          '₹${items[index].fee}',
+                          '₹ ${items[index].fee}',
                           style: h5(color: primaryColor),
                         ),
                         Text(

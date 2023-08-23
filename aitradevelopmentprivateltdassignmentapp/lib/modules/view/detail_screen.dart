@@ -2,6 +2,7 @@ import 'package:aitradevelopmentprivateltdassignmentapp/core/colors.dart';
 import 'package:aitradevelopmentprivateltdassignmentapp/core/font_sizes.dart';
 import 'package:aitradevelopmentprivateltdassignmentapp/modules/controller/controllers/detail_controller.dart';
 import 'package:aitradevelopmentprivateltdassignmentapp/modules/model/data/data.dart';
+import 'package:aitradevelopmentprivateltdassignmentapp/modules/view/widgets/items_gridview.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
@@ -111,6 +112,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 Container(
                   padding: const EdgeInsets.all(16),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         Data.detail.item.type,
@@ -118,11 +120,59 @@ class _DetailScreenState extends State<DetailScreen> {
                           fontFamily: 'Montserrat'
                         ),
                       ),
+                      const SizedBox(height: 8),
                       Text(
                         Data.detail.item.name,
                         style: h4(
-                          color: secondaryColor,
-                          fontWeight: FontWeight.bold
+                          color: secondaryColor
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        '₹ ${Data.detail.item.fee}/ Day',
+                        style: h4(
+                          color: primaryColorLight
+                        )
+                      ),
+                      const SizedBox(height: 15),
+                      //Slider
+                      const SizedBox(height: 15),
+                      Text(
+                        'Description',
+                        style: h6(
+                          color: secondaryColor
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        Data.detail.item.description,
+                        style: bodySm(color: textGrey),
+                        textAlign: TextAlign.justify,
+                      ),
+                      const SizedBox(height: 50),
+                      Text(
+                        'Seller Information',
+                        style: h6(
+                          color: secondaryColor
+                        ),
+                      ),
+                      const SizedBox(height: 35),
+                      Text(
+                        'Related Products',
+                        style: h6(
+                          color: secondaryColor
+                        ),
+                      ),
+                      const SizedBox(height: 15),
+                      itemsGridview(Data.detail.relatedProducts, () {}),
+                      const SizedBox(height: 15),
+                      Center(
+                        child: TextButton(
+                          onPressed: () {}, 
+                          child: Text(
+                            'View more',
+                            style: buttonLg(color: primaryColor),
+                          )
                         ),
                       )
                     ],

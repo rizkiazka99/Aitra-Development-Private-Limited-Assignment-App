@@ -9,6 +9,7 @@ class Items {
     String type;
     String distance;
     String fee;
+    String description;
     String image;
 
     Items({
@@ -16,6 +17,7 @@ class Items {
         required this.type,
         required this.distance,
         required this.fee,
+        required this.description,
         required this.image,
     });
 
@@ -24,6 +26,7 @@ class Items {
         type: json["type"],
         distance: json["distance"],
         fee: json["fee"],
+        description: json["description"],
         image: json["image"],
     );
 
@@ -32,6 +35,7 @@ class Items {
         "type": type,
         "distance": distance,
         "fee": fee,
+        "description": description,
         "image": image,
     };
 }
