@@ -82,6 +82,7 @@ class _DashboardState extends State<Dashboard> {
     DashboardController controller = Get.find<DashboardController>();
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: appBar(controller),
       body: body(controller),
       bottomNavigationBar: bottomNavBar(controller),

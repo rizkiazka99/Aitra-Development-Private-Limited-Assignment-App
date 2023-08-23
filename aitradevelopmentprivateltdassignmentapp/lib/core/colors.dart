@@ -5,6 +5,7 @@ const secondaryColor = Color(0xFF563E1F);
 const disabledButton = Color(0xFFDADADA);
 const searchBarColor = Color(0xFFF4F4F4);
 const categoryUnselectedColor = Color(0xFFF8F9F4);
+const typeColor = Color(0xFF858484);
 
 dynamic warningColor = Colors.yellow[700];
 dynamic successColor = Colors.green;

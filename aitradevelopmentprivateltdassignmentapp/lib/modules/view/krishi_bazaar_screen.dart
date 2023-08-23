@@ -1,7 +1,9 @@
 import 'package:aitradevelopmentprivateltdassignmentapp/core/colors.dart';
 import 'package:aitradevelopmentprivateltdassignmentapp/core/font_sizes.dart';
 import 'package:aitradevelopmentprivateltdassignmentapp/modules/controller/controllers/krishi_bazaar_controller.dart';
+import 'package:aitradevelopmentprivateltdassignmentapp/modules/model/data/data.dart';
 import 'package:aitradevelopmentprivateltdassignmentapp/modules/view/widgets/custom_search_bar.dart';
+import 'package:aitradevelopmentprivateltdassignmentapp/modules/view/widgets/items_gridview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -113,10 +115,11 @@ class _KrishiBazaarScreenState extends State<KrishiBazaarScreen> {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Container(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -174,13 +177,41 @@ class _KrishiBazaarScreenState extends State<KrishiBazaarScreen> {
                         ),
                       ],
                     ),
-                  )
+                  ),
+                  const SizedBox(height: 15),
+                  itemsGridview(Data.items),
+                  const SizedBox(height: 15),
+                  // Carousel Slider
+                  const SizedBox(height: 15),
+                  Text(
+                    'Top Products',
+                    style: h6(
+                      color: secondaryColor
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  itemsGridview(Data.topProducts)
                 ],
               ),
-            ),
-            ),
+            )
           ),
-        )
+        ),
+      ),
+      floatingActionButton: Container(
+        height: 40,
+        width: MediaQuery.of(context).size.width / 4,
+        decoration: BoxDecoration(
+          color: primaryColor,
+          borderRadius: BorderRadius.circular(30)
+        ),
+        child: Center(
+          child: Text(
+            '+ Sell',
+            style: buttonLg(color: Colors.white),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
