@@ -170,11 +170,16 @@ class _KrishiBazaarScreenState extends State<KrishiBazaarScreen> {
                   setState(() {
                     controller.carouselIndex = index;
                   });
-                })),
+                }
+            )),
         Center(
           child: DotsIndicator(
             dotsCount: Data.newestProducts.length,
             position: controller.carouselIndex,
+            decorator: const DotsDecorator(
+              color: contextGrey,
+              activeColor: primaryColor
+            ),
           ),
         )
       ],

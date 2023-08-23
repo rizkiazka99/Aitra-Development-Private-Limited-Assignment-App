@@ -71,7 +71,7 @@ class Data {
       type: "Equipment",
       distance: '2 km',
       fee: "240",
-      image: "assets/images/rotovator.png"
+      image: "assets/images/rotavatordetail.png"
     ), 
     contact: Contact(
       name: "Ram Prasad",
@@ -102,5 +102,11 @@ class Data {
     'assets/images/newestproducts.png',
     'assets/images/newestproducts.png',
     'assets/images/newestproducts.png'
-  ];   
+  ];
+
+  static final detailImages = [
+    'assets/images/rotavatordetail.png',
+    'assets/images/rotavatordetail.png',
+    'assets/images/rotavatordetail.png'
+  ];
 }
