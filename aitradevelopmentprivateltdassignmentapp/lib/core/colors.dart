@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 
 const primaryColor = Color(0xFFE26B26);
 const secondaryColor = Color(0xFF563E1F);
-const disabledGrey = Color(0xFFDADADA);
+const disabledButton = Color(0xFFDADADA);
+const searchBarColor = Color(0xFFF4F4F4);
+const categoryUnselectedColor = Color(0xFFF8F9F4);
+
 dynamic warningColor = Colors.yellow[700];
 dynamic successColor = Colors.green;
 //contextual color

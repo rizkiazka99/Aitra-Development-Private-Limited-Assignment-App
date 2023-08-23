@@ -11,6 +11,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
@@ -38,6 +39,7 @@ class _MyStationScreenState extends State<MyStationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
@@ -65,6 +67,7 @@ class _MyFarmScreenState extends State<MyFarmScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
@@ -92,6 +95,7 @@ class _KrishiGyanScreenState extends State<KrishiGyanScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SizedBox(
           width: MediaQuery.of(context).size.width,

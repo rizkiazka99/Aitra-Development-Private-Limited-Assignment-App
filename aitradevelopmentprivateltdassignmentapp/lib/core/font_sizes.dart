@@ -64,8 +64,8 @@ bodySm({color = textBlack, fontWeight = FontWeight.normal, fontFamily}) {
   return TextStyle(color: color, fontSize: 12, fontWeight: fontWeight, fontFamily: fontFamily);
 }
 
-bodyXs({color = textBlack, fontFamily}) {
-  return TextStyle(color: color, fontSize: 10, fontFamily: fontFamily);
+bodyXs({color = textBlack, fontWeight = FontWeight.normal, fontFamily}) {
+  return TextStyle(color: color, fontSize: 10, fontWeight: fontWeight, fontFamily: fontFamily);
 }
 
 bodyXsGrey({color = textGrey, fontSize, fontFamily}) {

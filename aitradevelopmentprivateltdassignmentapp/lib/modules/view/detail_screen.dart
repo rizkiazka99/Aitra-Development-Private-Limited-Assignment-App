@@ -14,6 +14,8 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     DetailController controller = Get.find<DetailController>();
 
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.white,
+    );
   }
 }

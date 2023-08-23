@@ -15,6 +15,7 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   PreferredSizeWidget appBar(DashboardController controller) {
     return AppBar(
+      backgroundColor: Colors.white,
       leading: IconButton(
         onPressed: () {},
         icon: const Icon(
@@ -39,6 +40,7 @@ class _DashboardState extends State<Dashboard> {
 
   Widget bottomNavBar(DashboardController controller) {
     return Obx(() => BottomNavigationBar(
+      backgroundColor: Colors.white,
       items: [
         BottomNavigationBarItem(
           activeIcon: Image.asset('assets/icons/home_selected.png'),
