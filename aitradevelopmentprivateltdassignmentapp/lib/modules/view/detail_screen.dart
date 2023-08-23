@@ -16,6 +16,18 @@ class _DetailScreenState extends State<DetailScreen> {
 
     return Scaffold(
       backgroundColor: Colors.white,
+      body: SafeArea(
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            child: Center(
+              child: Text('Detail Screen'),
+            ),
+          ),
+        )
+      ),
     );
   }
 }

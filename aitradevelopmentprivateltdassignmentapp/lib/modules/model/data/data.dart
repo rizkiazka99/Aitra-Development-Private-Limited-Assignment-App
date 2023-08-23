@@ -95,5 +95,12 @@ class Data {
         image: "assets/images/relatedproducts2.png"
       )
     ]
-  );   
+  );
+
+  static final newestProducts = [
+    'assets/images/newestproducts.png',
+    'assets/images/newestproducts.png',
+    'assets/images/newestproducts.png',
+    'assets/images/newestproducts.png'
+  ];   
 }

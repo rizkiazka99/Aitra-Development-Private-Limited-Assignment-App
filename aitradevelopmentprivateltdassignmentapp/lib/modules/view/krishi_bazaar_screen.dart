@@ -4,6 +4,9 @@ import 'package:aitradevelopmentprivateltdassignmentapp/modules/controller/contr
 import 'package:aitradevelopmentprivateltdassignmentapp/modules/model/data/data.dart';
 import 'package:aitradevelopmentprivateltdassignmentapp/modules/view/widgets/custom_search_bar.dart';
 import 'package:aitradevelopmentprivateltdassignmentapp/modules/view/widgets/items_gridview.dart';
+import 'package:aitradevelopmentprivateltdassignmentapp/router/screens.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -104,6 +107,80 @@ class _KrishiBazaarScreenState extends State<KrishiBazaarScreen> {
     ));
   }
 
+  Widget newestProductsCarousel(KrishiBazaarController controller) {
+    return Column(
+      children: [
+        CarouselSlider(
+            carouselController: controller.carouselController,
+            items: Data.newestProducts.map((e) {
+              return Stack(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(right: 16),
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.asset(e)),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.all(24),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Spacer(),
+                        Text(
+                          'All grains',
+                          style: h5(
+                              color: Colors.white,
+                              fontWeight: FontWeight.normal),
+                        ),
+                        Text(
+                          'Newest Products',
+                          style: h3(color: Colors.white),
+                        ),
+                        const SizedBox(height: 15),
+                        InkWell(
+                          borderRadius: BorderRadius.circular(25),
+                          onTap: () {},
+                          child: Container(
+                            height: 47,
+                            width: MediaQuery.of(context).size.width / 3,
+                            decoration: BoxDecoration(
+                                color: primaryColor,
+                                borderRadius: BorderRadius.circular(25)),
+                            child: Center(
+                              child: Text(
+                                'View all',
+                                style: buttonLg(color: Colors.white),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 15)
+                      ],
+                    ),
+                  )
+                ],
+              );
+            }).toList(),
+            options: CarouselOptions(
+                height: 313,
+                enableInfiniteScroll: false,
+                autoPlay: false,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    controller.carouselIndex = index;
+                  });
+                })),
+        Center(
+          child: DotsIndicator(
+            dotsCount: Data.newestProducts.length,
+            position: controller.carouselIndex,
+          ),
+        )
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     KrishiBazaarController controller = Get.find<KrishiBazaarController>();
@@ -179,10 +256,12 @@ class _KrishiBazaarScreenState extends State<KrishiBazaarScreen> {
                     ),
                   ),
                   const SizedBox(height: 15),
-                  itemsGridview(Data.items),
-                  const SizedBox(height: 15),
-                  // Carousel Slider
-                  const SizedBox(height: 15),
+                  itemsGridview(Data.items, () {
+                    Get.toNamed(Routes.DETAIL);
+                  }),
+                  const SizedBox(height: 45),
+                  newestProductsCarousel(controller),
+                  const SizedBox(height: 55),
                   Text(
                     'Top Products',
                     style: h6(
@@ -190,24 +269,30 @@ class _KrishiBazaarScreenState extends State<KrishiBazaarScreen> {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  itemsGridview(Data.topProducts)
+                  itemsGridview(Data.topProducts, () {
+                    Get.toNamed(Routes.DETAIL);
+                  })
                 ],
               ),
             )
           ),
         ),
       ),
-      floatingActionButton: Container(
-        height: 40,
-        width: MediaQuery.of(context).size.width / 4,
-        decoration: BoxDecoration(
-          color: primaryColor,
-          borderRadius: BorderRadius.circular(30)
-        ),
-        child: Center(
-          child: Text(
-            '+ Sell',
-            style: buttonLg(color: Colors.white),
+      floatingActionButton: InkWell(
+        borderRadius: BorderRadius.circular(30),
+        onTap: () {},
+        child: Container(
+          height: 40,
+          width: MediaQuery.of(context).size.width / 4,
+          decoration: BoxDecoration(
+            color: primaryColor,
+            borderRadius: BorderRadius.circular(30)
+          ),
+          child: Center(
+            child: Text(
+              '+ Sell',
+              style: buttonLg(color: Colors.white),
+            ),
           ),
         ),
       ),
